@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=American+Captain&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color:  #102854; /* Tamnija plava */
+  --secondary-color: #e74c3c;
+}
+
+/* 🟢 Sprečava horizontalni scroll na mobilnim uređajima */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 🟢 Poboljšava izgled teksta na mobilnim uređajima */
+body {
+  font-family: 'Arial', Helvetica, sans-serif;
+  background-color: #f8f4f4;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* 🟢 Prilagođavanje header-a */
+.custom-header {
+  background-color: var(--primary-color);
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+/* 🟢 Prilagođavanje fontova */
+.header-text {
+  font-family: 'American Captain', cursive;
+  text-transform: uppercase;
+}
+
+.hebrew-text {
+  font-family: 'DM Serif Display', serif;
+}
+
+/* 🟢 Navigacija - koristi Poppins */
+.navbar a {
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-right: 3px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* 🟢 Navigacija hover efekat */
+.navbar a:hover {
+  background-color: #34495e;
+  border-radius: 5px;
+  transform: scale(1.05);
+}
+
+/* 🟢 Fleksibilan dizajn za navigaciju */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* 🟢 FOOTER PRILAGOĐAVANJE */
+footer {
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 10px;
+}
+
+/* 🟢 RESPONSIVE PRILAGOĐAVANJE ZA MOBILNE UREĐAJE */
+@media screen and (max-width: 768px) {
+  /* 🟢 Smanjuje fontove za bolje uklapanje */
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  /* 🟢 Header prilagođen mobilnim uređajima */
+  .custom-header {
+    padding: 5px 0;
+  }
+
+  /* 🟢 Navigacija na mobilnim uređajima */
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.85rem;
+  }
+
+  /* 🟢 Footer prilagođen mobilnim uređajima */
+  footer {
+    flex-direction: column;
+    padding: 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Sakriva scrollbar za Chrome, Safari i Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Sakriva scrollbar za IE, Edge i Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE i Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+ /* NAREDBA DA BUDE SVETLA BOJA NA SVIM UREDJAJIMA A NE DARK MODE*/
+
+body {
+  background-color: #f8f4f4;
+  color: #333;
+}
+html {
+  color-scheme: light;
+}
