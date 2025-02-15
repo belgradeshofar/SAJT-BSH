@@ -1,34 +1,36 @@
 "use client";
 
-import { useState, ChangeEvent } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import {
   FaInstagram,
   FaFacebookF,
   FaBars,
-  FaXmark,      // ← umesto FaTimes
-  FaXTwitter,   // ← ikona za X (bivši Twitter)
+  FaXmark,    // Icon for closing the menu
+  FaXTwitter, // Icon for X (formerly Twitter)
 } from "react-icons/fa6";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleLanguageChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value;
-    console.log("Language changed to:", newLang);
-  };
 
   return (
     <header className="custom-header text-white">
       <div className="container mx-auto flex justify-between items-center py-2 px-4">
         {/* Logo */}
         <Link href="/" legacyBehavior>
-          <a className="flex items-center" style={{ color: "inherit", textDecoration: "none" }}>
-            <img src="/logo.png" alt="Belgrade Shofar Logo" className="h-10 mr-2" />
+          <a
+            className="flex items-center"
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            <img
+              src="/logo.png"
+              alt="Belgrade Shofar Logo"
+              className="h-10 mr-2"
+            />
           </a>
         </Link>
 
-        {/* Desktop meni */}
+        {/* Desktop menu */}
         <div className="hidden lg:flex items-center space-x-3">
           <div className="flex space-x-2">
             <a
@@ -56,20 +58,15 @@ export default function Header() {
               <FaXTwitter />
             </a>
           </div>
-          <select
-            onChange={handleLanguageChange}
-            className="bg-transparent text-white text-sm font-bold"
-            defaultValue="en"
-          >
-            <option value="en">EN</option>
-            <option value="he">HE</option>
-            <option value="ru">RU</option>
-          </select>
           <Link href="/o-nama" legacyBehavior>
-            <a className="text-white hover:text-gray-300 text-sm font-bold">O nama</a>
+            <a className="text-white hover:text-gray-300 text-sm font-bold">
+              About
+            </a>
           </Link>
           <Link href="/kontakt" legacyBehavior>
-            <a className="text-white hover:text-gray-300 text-sm font-bold">Kontakt</a>
+            <a className="text-white hover:text-gray-300 text-sm font-bold">
+              Contact
+            </a>
           </Link>
           <a
             href="/doniraj"
@@ -79,7 +76,7 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobilni meni toggle */}
+        {/* Mobile menu icon */}
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -94,7 +91,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobilni/tablet meni */}
+      {/* Mobile/tablet menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden bg-[var(--primary-color)]">
           <div className="container mx-auto flex flex-col items-center space-y-4 py-4">
@@ -124,20 +121,15 @@ export default function Header() {
                 <FaXTwitter />
               </a>
             </div>
-            <select
-              onChange={handleLanguageChange}
-              className="bg-transparent text-white text-sm font-bold"
-              defaultValue="en"
-            >
-              <option value="en">EN</option>
-              <option value="he">HE</option>
-              <option value="ru">RU</option>
-            </select>
             <Link href="/o-nama" legacyBehavior>
-              <a className="text-white hover:text-gray-300 text-sm font-bold">O nama</a>
+              <a className="text-white hover:text-gray-300 text-sm font-bold">
+                About
+              </a>
             </Link>
             <Link href="/kontakt" legacyBehavior>
-              <a className="text-white hover:text-gray-300 text-sm font-bold">Kontakt</a>
+              <a className="text-white hover:text-gray-300 text-sm font-bold">
+                Contact
+              </a>
             </Link>
             <a
               href="/doniraj"

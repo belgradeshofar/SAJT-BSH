@@ -5,8 +5,12 @@ import SliderHeader from "./components/SliderHeader";
 import Footer from "./components/Footer";
 
 export const metadata = {
-  title: "Belgrade Shofar - Najnovije vesti iz Izraela",
-  description: "Aktuelne informacije o politici, kulturi i Holokaustu.",
+  icons: {
+    icon: "/favicon.png", // Obavezno pocinje kosom crtom
+  },
+  description: "Aktuelne informacije i novosti iz Izraela",
+  // Možeš dodati još meta tagova, npr. keywords, viewport, itd.
+  keywords: "vesti, Izrael, Blisko istok, Izraelci, Jevreji, Palestina, Tel Aviv, Jerusalim, Izrael i Palestina, Izraelski konflikt, Izraelska vojska, Mosad",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -30,3 +34,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+

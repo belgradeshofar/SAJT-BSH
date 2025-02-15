@@ -25,7 +25,7 @@ function shuffle(array: Article[]): Article[] {
   return newArr;
 }
 
-// CategoryBlock za prikaz 2 članka po kategoriji
+// Componenta za prikaz rubrike (npr. KULTURA) sa dva članka i linkom "VIŠE"
 function CategoryBlock({
   articles,
   label,
@@ -74,7 +74,7 @@ function CategoryBlock({
   );
 }
 
-// LAYOUT ZA MOBIL (ispod md)
+// Mobilni layout: sadržaj se prikazuje u jednoj koloni
 function MobileLayout({
   mainFeed,
   kulturaArticles,
@@ -95,7 +95,6 @@ function MobileLayout({
   return (
     <div className="md:hidden flex flex-col">
       <Slider />
-      {/* SMANJEN RAZMAK: mt-1 */}
       <div className="mt-1">
         <MainFeedClient articles={mainFeed} />
       </div>
@@ -111,7 +110,7 @@ function MobileLayout({
   );
 }
 
-// LAYOUT ZA DESKTOP (od md naviše)
+// Desktop layout: leva kolona sa slajderom i rubrikama, desna kolona sa glavnim feed-om
 function DesktopLayout({
   mainFeed,
   kulturaArticles,
@@ -131,7 +130,7 @@ function DesktopLayout({
 }) {
   return (
     <div className="hidden md:flex md:flex-row">
-      {/* LEVA KOLONA */}
+      {/* Leva kolona: Slajder i rubrike */}
       <div className="w-1/2 pr-4 flex flex-col">
         <Slider />
         <div className="mt-4">
@@ -144,7 +143,7 @@ function DesktopLayout({
         </div>
       </div>
 
-      {/* DESNA KOLONA */}
+      {/* Desna kolona: Glavni feed */}
       <div className="w-1/2">
         <MainFeedClient articles={mainFeed} />
       </div>
@@ -152,9 +151,9 @@ function DesktopLayout({
   );
 }
 
-// GLAVNA SERVER KOMPONENTA
+// Glavna server komponenta
 export default async function HomePage() {
-  // Dohvat članaka na serveru
+  // Dohvat članaka sa servera
   const { data, error } = await supabase
     .from("articles")
     .select("*")
@@ -167,12 +166,12 @@ export default async function HomePage() {
 
   const allArticles = (data as Article[]) || [];
 
-  // Glavni feed
+  // Glavni feed: članak koji treba prikazati na početnoj stranici
   const mainFeed = allArticles.filter(
     (article) => article.category === "HOME" || article.show_on_home
   );
 
-  // Kategorije
+  // Rubrike: mešamo i uzimamo po 2 članka za svaku kategoriju
   const kulturaArticles = shuffle(allArticles.filter((a) => a.category === "KULTURA")).slice(0, 2);
   const istorijaArticles = shuffle(allArticles.filter((a) => a.category === "ISTORIJA")).slice(0, 2);
   const holokaustArticles = shuffle(allArticles.filter((a) => a.category === "HOLOKAUST")).slice(0, 2);
@@ -192,7 +191,6 @@ export default async function HomePage() {
         umetnostArticles={umetnostArticles}
         blogArticles={blogArticles}
       />
-
       {/* Desktop layout */}
       <DesktopLayout
         mainFeed={mainFeed}
