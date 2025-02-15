@@ -1,7 +1,5 @@
 "use client";
 
-import "@/types/quill-setup"; // Uvezi fajl iz foldera "types" koji registruje imageResize modul
-
 import ReactDOM from "react-dom";
 if (!(ReactDOM as any).findDOMNode) {
   (ReactDOM as any).findDOMNode = function (component: any) {
@@ -21,7 +19,7 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 
-// Uvezi ReactQuill dinamički (samo na klijentskoj strani)
+// Dinamički uvezi ReactQuill samo na klijentskoj strani
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 // Definiši custom toolbar module za ReactQuill
@@ -30,7 +28,7 @@ const modules = {
     container: [
       [{ header: [1, 2, 3, false] }],
       ["bold", "italic", "underline", "strike"],
-      [{ align: [] }], // Poravnanje: levo, centrirano, desno, justified
+      [{ align: [] }],
       [{ list: "ordered" }, { list: "bullet" }],
       ["link", "image"],
       ["clean"],
@@ -68,36 +66,29 @@ interface Article {
   image_url: string | null;
   featured: boolean;
   category: string | null;
-  show_on_home?: boolean;   // polje iz baze (snake_case: show_on_home)
-  created_at?: string;      // da možemo sortirati i prikazati datum
+  show_on_home?: boolean;
+  created_at?: string;
 }
 
 export default function AdminPage() {
-  const [user, setUser] = useState<{ email: string | null | undefined } | null>(
-    null
-  );
+  const [user, setUser] = useState<{ email: string | null | undefined } | null>(null);
   const [articles, setArticles] = useState<Article[]>([]);
-
+  
   // States za formu
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [featured, setFeatured] = useState(false);
   const [category, setCategory] = useState("HOME");
-
-  // React state za polje showOnHome (CamelCase)
   const [showOnHome, setShowOnHome] = useState(false);
-
   const [editingArticle, setEditingArticle] = useState<Article | null>(null);
-
-  // Pomoćni states
   const [message, setMessage] = useState("");
-  const [showForm, setShowForm] = useState(false); // da li prikazujemo formu?
-  const [searchTerm, setSearchTerm] = useState(""); // za pretragu po naslovu
+  const [showForm, setShowForm] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const router = useRouter();
 
-  // Proveravamo korisnika
+  // Provera korisnika
   useEffect(() => {
     const getUser = async () => {
       const { data } = await supabase.auth.getUser();
@@ -110,14 +101,13 @@ export default function AdminPage() {
     getUser();
   }, [router]);
 
-  // Učitavamo sve članke (sortirano)
+  // Učitavanje članaka
   useEffect(() => {
     const fetchArticles = async () => {
       const { data, error } = await supabase
         .from("articles")
         .select("*")
         .order("created_at", { ascending: false });
-
       if (error) {
         console.error(error.message);
       } else {
@@ -127,11 +117,9 @@ export default function AdminPage() {
     fetchArticles();
   }, [message]);
 
-  // Kreiramo novi članak
+  // Kreiranje novog članka
   const handleAddArticle = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Prilikom inserta, u Supabase kolonu 'show_on_home' šaljemo vrednost showOnHome
     const { error } = await supabase.from("articles").insert([
       {
         title,
@@ -139,23 +127,20 @@ export default function AdminPage() {
         image_url: imageUrl,
         featured,
         category,
-        // Važno: show_on_home (snace-case) = showOnHome (camelCase state)
         show_on_home: showOnHome,
       },
     ]);
-
     if (error) {
       setMessage("Greška prilikom dodavanja članka.");
       console.error(error.message);
     } else {
       setMessage("Članak uspešno dodat.");
-      // Resetujemo formu
       resetForm();
       setShowForm(false);
     }
   };
 
-  // Brisanje
+  // Brisanje članka
   const handleDeleteArticle = async (id: string) => {
     const { error } = await supabase.from("articles").delete().eq("id", id);
     if (error) {
@@ -175,18 +160,14 @@ export default function AdminPage() {
     setImageUrl(article.image_url || "");
     setFeatured(article.featured);
     setCategory(article.category || "HOME");
-
-    // Važno: localState = polje iz article.show_on_home
     setShowOnHome(article.show_on_home || false);
-
     setShowForm(true);
   };
 
-  // Ažuriranje
+  // Ažuriranje članka
   const handleUpdateArticle = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingArticle) return;
-
     const { error } = await supabase
       .from("articles")
       .update({
@@ -195,11 +176,9 @@ export default function AdminPage() {
         image_url: imageUrl,
         featured,
         category,
-        // ponovo: show_on_home = local showOnHome
         show_on_home: showOnHome,
       })
       .eq("id", editingArticle.id);
-
     if (error) {
       setMessage("Greška prilikom ažuriranja članka.");
       console.error(error.message);
@@ -210,7 +189,7 @@ export default function AdminPage() {
     }
   };
 
-  // Reset forma
+  // Reset forme
   const resetForm = () => {
     setEditingArticle(null);
     setTitle("");
@@ -221,7 +200,7 @@ export default function AdminPage() {
     setShowOnHome(false);
   };
 
-  // Odustani
+  // Odustajanje od izmene
   const handleCancel = () => {
     resetForm();
     setShowForm(false);
@@ -236,7 +215,6 @@ export default function AdminPage() {
 
   return (
     <div className="container mx-auto p-4">
-      {/* HEADER Admin Panela */}
       <h1 className="text-2xl font-bold mb-4">Dobrodošao, {user.email}</h1>
       <p>Ovo je Admin Panel, dostupan samo prijavljenim korisnicima.</p>
       <button
@@ -249,11 +227,9 @@ export default function AdminPage() {
         Odjavi se
       </button>
 
-      {/* Dugme za kreiranje novog članka + search bar */}
       <div className="mt-6 flex justify-between items-center">
         <button
           onClick={() => {
-            // Otvori formu za dodavanje novog članka
             resetForm();
             setShowForm(true);
           }}
@@ -270,7 +246,6 @@ export default function AdminPage() {
         />
       </div>
 
-      {/* PRIKAZ LISTE ČLANAKA (TABELA) */}
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-full border text-sm">
           <thead className="bg-gray-100">
@@ -318,7 +293,6 @@ export default function AdminPage() {
         </table>
       </div>
 
-      {/* FORMA ZA DODAVANJE / IZMENU (prikazuje se samo ako showForm=true) */}
       {showForm && (
         <div className="mt-6 p-4 border rounded bg-gray-50">
           <h2 className="text-xl font-bold mb-4">
@@ -328,7 +302,6 @@ export default function AdminPage() {
             onSubmit={editingArticle ? handleUpdateArticle : handleAddArticle}
             className="space-y-4"
           >
-            {/* Naslov */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Naslov
@@ -341,7 +314,6 @@ export default function AdminPage() {
                 required
               />
             </div>
-            {/* Sadržaj */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Sadržaj{" "}
@@ -358,7 +330,6 @@ export default function AdminPage() {
                 formats={formats}
               />
             </div>
-            {/* URL fotografije */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 URL Fotografije
@@ -370,7 +341,6 @@ export default function AdminPage() {
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
               />
             </div>
-            {/* Istaknuti članak */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Istaknuti članak
@@ -382,7 +352,6 @@ export default function AdminPage() {
                 className="mt-1"
               />
             </div>
-            {/* Kategorija */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Kategorija
@@ -402,7 +371,6 @@ export default function AdminPage() {
                 <option value="NAJNOVIJE VESTI">NAJNOVIJE VESTI</option>
               </select>
             </div>
-            {/* Prikaži i na Naslovnoj? */}
             <div>
               <label className="block text-sm font-medium text-gray-700">
                 Prikaži i na Naslovnoj?
@@ -414,7 +382,6 @@ export default function AdminPage() {
                 className="mt-1"
               />
             </div>
-
             <div className="flex space-x-2">
               <button
                 type="submit"
@@ -434,7 +401,6 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* Poruka (o uspehu, grešci) */}
       {message && <p className="text-green-500 mt-4">{message}</p>}
     </div>
   );
