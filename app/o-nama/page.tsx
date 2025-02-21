@@ -3,13 +3,12 @@
 export default function ONama() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero section – An attractive intro with rounded corners */}
+      {/* Hero section – A professional introduction with refined styling */}
       <section className="bg-[#102854] text-white py-20 rounded-lg mx-4">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            BELGRADE SHOFAR is a leading news portal that gathers and delivers
-            the latest and most reliable news from Israel.
+            Shalom.rs is a premier news portal dedicated to delivering reliable and timely news from Israel.
           </p>
         </div>
       </section>
@@ -20,20 +19,16 @@ export default function ONama() {
           <div>
             <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
             <p className="text-gray-800 text-lg mb-6">
-              Our mission is to provide accurate, timely, and impartial information,
-              inspiring and empowering our audience to stay informed about all key
-              events from Israel.
+              Our mission is to provide accurate, timely, and impartial information, empowering our audience with comprehensive insights into the most significant events in Israel.
             </p>
             <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
             <p className="text-gray-800 text-lg">
-              We strive to become the primary news source in the region, using
-              innovative technologies and the latest journalistic practices to
-              ensure high-quality and credible information.
+              We aspire to establish shalom.rs as the foremost source of trustworthy news in the region by leveraging advanced technologies and exemplary journalistic practices.
             </p>
           </div>
           <div>
             <img
-              src="/images/o-nama-misija.jpg"
+              src="o-nama-misija.jpg"
               alt="Our Mission and Vision"
               className="w-full rounded-lg shadow-lg"
             />
@@ -49,67 +44,41 @@ export default function ONama() {
             <div className="text-center px-4">
               <h3 className="text-2xl font-semibold mb-2">Integrity</h3>
               <p className="text-gray-700">
-                We respect journalistic ethics, truth, and impartiality in every report.
+                We uphold the highest standards of journalistic ethics, ensuring truth and impartiality in every report.
               </p>
             </div>
             <div className="text-center px-4">
               <h3 className="text-2xl font-semibold mb-2">Accuracy</h3>
               <p className="text-gray-700">
-                Our commitment to detail ensures that every piece of news is verified and correct.
+                Our commitment to precision guarantees that every piece of news is meticulously verified.
               </p>
             </div>
             <div className="text-center px-4">
               <h3 className="text-2xl font-semibold mb-2">Innovation</h3>
               <p className="text-gray-700">
-                We use cutting-edge technologies to quickly and efficiently deliver information.
+                We leverage cutting-edge technologies to deliver information swiftly and efficiently.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team */}
+      {/* Collaboration with Metapolis Center */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Example team member – add as many as you like */}
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <img
-              src="/images/team/member1.jpg"
-              alt="Team member"
-              className="w-32 h-32 rounded-full mx-auto mb-4"
-            />
-            <h3 className="text-2xl font-semibold">Marko Marković</h3>
-            <p className="text-gray-600">Lead Journalist</p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <img
-              src="/images/team/member2.jpg"
-              alt="Team member"
-              className="w-32 h-32 rounded-full mx-auto mb-4"
-            />
-            <h3 className="text-2xl font-semibold">Jelena Jovanović</h3>
-            <p className="text-gray-600">Editor</p>
-          </div>
-          <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <img
-              src="/images/team/member3.jpg"
-              alt="Team member"
-              className="w-32 h-32 rounded-full mx-auto mb-4"
-            />
-            <h3 className="text-2xl font-semibold">Nikola Nikolić</h3>
-            <p className="text-gray-600">Digital Strategist</p>
-          </div>
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h2 className="text-3xl font-bold mb-4 text-center">In Collaboration with the Metapolis Center</h2>
+          <p className="text-gray-800 text-lg">
+            Shalom.rs is proud to be part of a broader web development initiative led by the Metapolis Center—an organization committed to fostering non-profit journalism and innovative community development. Spearheaded by a dynamic group of young professionals, Shalom.rs with Metapolis's technical support promotes unbiased news and empowers citizens with transparent information.
+          </p>
         </div>
       </section>
 
-      {/* Call to action */}
+      {/* Call to Action */}
       <section className="bg-[#102854] text-white py-12">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Join Our Mission</h2>
           <p className="text-lg mb-6">
-            If you believe in the power of truthful and impartial journalism, be a part
-            of the community that shapes the future of information.
+            If you value informed and unbiased journalism, become part of the community shaping the future of news.
           </p>
           <a
             href="/kontakt"

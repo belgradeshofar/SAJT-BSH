@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-center space-x-4 text-center">
         {/* Kratka © poruka */}
         <p className="whitespace-nowrap">
-          © {currentYear} Belgrade Shofar. Sva prava zadržana.
+          © {currentYear} Shalom.rs & Metapolis Center. All rights reserved.
         </p>
 
         {/* Dva mala žuta dugmeta */}

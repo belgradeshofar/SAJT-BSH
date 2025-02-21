@@ -9,7 +9,7 @@ export default function Kontakt() {
 
   const translations = {
     en: {
-      heroTitle: "Contact BELGRADE SHOFAR",
+      heroTitle: "Contact Shalom.rs",
       heroDescription:
         "Have important information, tips, or exclusive news from Israel? Reach out and share your story – your information might become the next big headline!",
       whyContactTitle: "Why Contact Us?",
@@ -44,7 +44,7 @@ export default function Kontakt() {
     sr: {
       // All text that was originally in Serbian is now translated to English,
       // but we keep this 'sr' key and structure unchanged, per request.
-      heroTitle: "Contact BELGRADE SHOFAR",
+      heroTitle: "Contact Shalom.rs",
       heroDescription:
         "Do you have important information, tips, or exclusive news from Israel? Contact us and share your story – your information may become the next big headline!",
       whyContactTitle: "Why contact us?",
@@ -73,8 +73,8 @@ export default function Kontakt() {
       sendMessageTitle: "Send us a message",
       workHours:
         "Editorial office working hours: Sunday – Thursday: 08:00 – 20:00, Friday: 08:00 – 12:00, Saturday: non-working.",
-      contactDetails:
-        "Email: redakcija@belgradeshofar.rs | Phone: +381 11 9876543",
+     
+       
     },
   };
 
@@ -139,7 +139,7 @@ export default function Kontakt() {
       <section className="bg-gray-200 py-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-lg text-gray-700">{t.workHours}</p>
-          <p className="mt-4 text-gray-600">{t.contactDetails}</p>
+
         </div>
       </section>
     </div>
