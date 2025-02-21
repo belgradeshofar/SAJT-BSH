@@ -8,7 +8,7 @@ export default function ONama() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">O nama</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            BELGRADE SHOFAR je vodeći news portal koji prikuplja i prenosi
+            **Shalom.rs** je vodeći news portal koji prikuplja i prenosi
             najnovije i najpouzdanije vesti iz Izraela.
           </p>
         </div>
