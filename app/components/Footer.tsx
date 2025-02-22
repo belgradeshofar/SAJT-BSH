@@ -10,7 +10,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 flex flex-wrap items-center justify-center space-x-4 text-center">
         {/* Kratka © poruka */}
         <p className="whitespace-nowrap">
-          © {currentYear} Shalom.rs & Metapolis Center. All rights reserved.
+          © {currentYear}  {" "}
+          <Link href="https://shalom.rs" className="hover:text-gray-300">Shalom.rs</Link> & {" "}
+          <Link href="https://metapoliscenter.com" className="hover:text-gray-300">Metapolis Center</Link>. All rights reserved.
         </p>
 
         {/* Dva mala žuta dugmeta */}

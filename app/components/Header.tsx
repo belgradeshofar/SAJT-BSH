@@ -34,7 +34,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center space-x-3">
           <div className="flex space-x-2">
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/izraelsrbija/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xl hover:text-gray-300"
