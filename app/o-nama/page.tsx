@@ -8,7 +8,8 @@ export default function ONama() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">
-            Shalom.rs is a premier news portal dedicated to delivering reliable and timely news from Israel.
+            Shalom.rs is a media platform dedicated to truthful and
+            objective reporting on Israel, Jewish culture, and the fight against misinformation.
           </p>
         </div>
       </section>
@@ -19,11 +20,18 @@ export default function ONama() {
           <div>
             <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
             <p className="text-gray-800 text-lg mb-6">
-              Our mission is to provide accurate, timely, and impartial information, empowering our audience with comprehensive insights into the most significant events in Israel.
+              Our mission is to provide accurate, impartial, and research-based 
+              information about Israel and the Jewish people. 
+              In an era where information manipulation has become a powerful tool, Shalom.rs stands as
+              a bastion of truth, shedding light on facts and exposing propaganda.
             </p>
             <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
             <p className="text-gray-800 text-lg">
-              We aspire to establish shalom.rs as the foremost source of trustworthy news in the region by leveraging advanced technologies and exemplary journalistic practices.
+              We aim to establish Shalom.rs as the leading independent source of 
+              information about Israel and Jewish heritage in the region. 
+              By utilizing modern technology, in-depth analysis, and investigative journalism, 
+              we are building a platform that dismantles prejudice, exposes false narratives, 
+              and gives a voice to those often unheard in global media.
             </p>
           </div>
           <div>
@@ -42,21 +50,23 @@ export default function ONama() {
           <h2 className="text-3xl font-bold text-center mb-12">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center px-4">
-              <h3 className="text-2xl font-semibold mb-2">Integrity</h3>
+              <h3 className="text-2xl font-semibold mb-2">Truth</h3>
               <p className="text-gray-700">
-                We uphold the highest standards of journalistic ethics, ensuring truth and impartiality in every report.
+                Every published report is based on facts, verified sources, and in-depth analysis.
               </p>
             </div>
             <div className="text-center px-4">
-              <h3 className="text-2xl font-semibold mb-2">Accuracy</h3>
+              <h3 className="text-2xl font-semibold mb-2">Impartiality</h3>
               <p className="text-gray-700">
-                Our commitment to precision guarantees that every piece of news is meticulously verified.
+                We report without sensationalism ensuring 
+                our readers get the full picture.
               </p>
             </div>
             <div className="text-center px-4">
-              <h3 className="text-2xl font-semibold mb-2">Innovation</h3>
+              <h3 className="text-2xl font-semibold mb-2">Education</h3>
               <p className="text-gray-700">
-                We leverage cutting-edge technologies to deliver information swiftly and efficiently.
+                Through historical retrospectives, analysis, and educational content, 
+                we promote knowledge about Israel and Jewish heritage.
               </p>
             </div>
           </div>
@@ -66,9 +76,15 @@ export default function ONama() {
       {/* Collaboration with Metapolis Center */}
       <section className="container mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold mb-4 text-center">In Collaboration with the Metapolis Center</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            In Collaboration with Metapolis Center
+          </h2>
           <p className="text-gray-800 text-lg">
-            Shalom.rs is proud to be part of a broader web development initiative led by the Metapolis Center—an organization committed to fostering non-profit journalism and innovative community development. Spearheaded by a dynamic group of young professionals, Shalom.rs with Metapolis's technical support promotes unbiased news and empowers citizens with transparent information.
+            Shalom.rs is part of a broader digital development initiative, supported by the 
+            Metapolis Center—an organization dedicated to promoting journalism, 
+            research projects, and community initiatives.  
+            This collaboration provides us with technical and analytical support 
+            in the fight for truth and transparency in media.
           </p>
         </div>
       </section>
@@ -78,7 +94,8 @@ export default function ONama() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Join Our Mission</h2>
           <p className="text-lg mb-6">
-            If you value informed and unbiased journalism, become part of the community shaping the future of news.
+            If you support journalism and the fight against misinformation, 
+            become part of the community shaping the future of media.
           </p>
           <a
             href="/kontakt"

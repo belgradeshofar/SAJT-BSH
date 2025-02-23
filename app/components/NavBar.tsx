@@ -15,7 +15,7 @@ export default function NavBar() {
     { href: "/religija", label: "RELIGIJA" },
     { href: "/umetnost", label: "UMETNOST" },
     { href: "/blog", label: "BLOG" },
-    { href: "/bsh-newsletter", label: "BSH NEWSLETTER" },
+    { href: "/bsh-newsletter", label: "SH NEWSLETTER" },
   ];
 
   return (
@@ -26,7 +26,7 @@ export default function NavBar() {
             const isActive = pathname === link.href;
             let baseClasses = "text-base font-bold ";
 
-            if (link.label === "BSH NEWSLETTER") {
+            if (link.label === "SH NEWSLETTER") {
               baseClasses += "bg-[#002855] text-white py-1 px-2 rounded hover:bg-[#002855] hover:text-white";
             } else {
               baseClasses += "text-[var(--primary-color)] hover:text-[var(--primary-color)]";

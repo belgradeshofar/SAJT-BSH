@@ -42,7 +42,7 @@ export default function Header() {
               <FaInstagram />
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/profile.php?id=61573469193373"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xl hover:text-gray-300"
@@ -50,7 +50,7 @@ export default function Header() {
               <FaFacebookF />
             </a>
             <a
-              href="https://www.x.com"
+              href="https://x.com/izraelsrbija"
               target="_blank"
               rel="noopener noreferrer"
               className="text-xl hover:text-gray-300"
