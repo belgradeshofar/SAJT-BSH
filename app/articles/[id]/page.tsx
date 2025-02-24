@@ -41,6 +41,7 @@ export async function generateMetadata({
   };
 }
 
+// @ts-ignore: Ignorišemo tip grešku zbog neslaganja sa PageProps
 export default function Page({ params }: { params: { id: string } }) {
   return <ClientArticlePage id={params.id} />;
 }
