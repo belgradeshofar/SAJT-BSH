@@ -2,15 +2,11 @@
 import ClientArticlePage from "./ClientArticlePage";
 import { createClient } from "@supabase/supabase-js";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}) {
+export async function generateMetadata({ params }) {
   const id = params.id;
 
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
   const { data, error } = await supabase
@@ -42,6 +38,6 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ params }: { params: any }) {
-  return <ClientArticlePage id={params.id} />;
+export default function Page(props) {
+  return <ClientArticlePage id={props.params.id} />;
 }
