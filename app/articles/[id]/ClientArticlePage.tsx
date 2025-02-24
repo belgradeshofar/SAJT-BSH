@@ -19,8 +19,6 @@ interface Props {
 
 export default function ClientArticlePage({ id }: Props) {
   const [article, setArticle] = useState<Article | null>(null);
-
-  // Preporučeni članci (iste kategorije)
   const [recommended, setRecommended] = useState<Article[]>([]);
 
   useEffect(() => {
@@ -42,10 +40,9 @@ export default function ClientArticlePage({ id }: Props) {
     fetchArticle();
   }, [id]);
 
-  // Kad se članak učita, pokušaj da pokupiš još par “recommended” iz iste kategorije
   useEffect(() => {
     const fetchRecommended = async () => {
-      if (!article?.category) return; // ako nema category, preskačemo
+      if (!article?.category) return;
 
       const { data, error } = await supabase
         .from("articles")
@@ -81,7 +78,6 @@ export default function ClientArticlePage({ id }: Props) {
 
   return (
     <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row gap-6">
-      {/* Glavni deo: naslov, slika, tekst */}
       <article className="md:w-3/4">
         {article.category && (
           <div className="text-sm text-blue-600 font-semibold uppercase mb-2">
@@ -93,7 +89,9 @@ export default function ClientArticlePage({ id }: Props) {
           {article.title}
         </h1>
 
-        <p className="text-gray-500 text-sm mb-4">Objavljeno: {formattedDate}</p>
+        <p className="text-gray-500 text-sm mb-4">
+          Objavljeno: {formattedDate}
+        </p>
 
         {article.image_url && (
           <figure className="mb-4 flex justify-center">
