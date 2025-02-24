@@ -1,4 +1,3 @@
-// app/articles/[id]/ClientArticlePage.tsx
 "use client";
 
 import { useEffect, useState } from "react";

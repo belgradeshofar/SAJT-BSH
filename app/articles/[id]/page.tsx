@@ -1,4 +1,3 @@
-// app/articles/[id]/page.tsx
 import ClientArticlePage from "./ClientArticlePage";
 import { createClient } from '@supabase/supabase-js';
 
@@ -36,6 +35,6 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   };
 }
 
-export default function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: { id: string } }) {
   return <ClientArticlePage id={params.id} />;
 }
